@@ -36,13 +36,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sign In"
-        android:paddingBottom="20dp"/>
+        android:textAlignment="center"
+        android:paddingBottom="20dp"
+        android:layout_marginTop="20dp"/>
 
-    <Button
+    <TextView
         android:id="@+id/tvRegisterLink"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Register Here"/>
+        android:text="Register Here"
+        android:gravity="center"
+        android:layout_marginTop="50dp"/>
 
 
 

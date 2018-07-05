@@ -11,14 +11,25 @@
         android:layout_height="wrap_content"
         android:paddingLeft="20dp"
         android:paddingTop="50dp"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="New Event"
+        android:id="@+id/new_event"
 
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Display list"
+        android:id="@+id/display_list"
+        android:layout_marginTop="20dp"
+        android:onClick="displayList"
 
-
-
-
-
-
+        />
 
 </LinearLayout>

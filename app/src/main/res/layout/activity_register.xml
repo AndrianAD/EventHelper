@@ -8,7 +8,7 @@
     android:paddingLeft="30dp"
     android:paddingRight="30dp"
     android:paddingTop="80dp"
-    tools:context="com.druk.eventhelper.RegisterActivity">
+    tools:context="com.druk.eventhelper.logIn.RegisterActivity">
 
    <android.support.design.widget.TextInputLayout
        android:layout_width="match_parent"
@@ -56,13 +56,6 @@
     </android.support.design.widget.TextInputLayout>
 
 
-
-    <ProgressBar
-        android:id="@+id/loading"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:visibility="gone"/>
 
     <Button
         android:id="@+id/btn_register"

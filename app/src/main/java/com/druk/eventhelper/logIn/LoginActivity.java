@@ -1,4 +1,4 @@
-package com.druk.eventhelper;
+package com.druk.eventhelper.logIn;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,11 +11,14 @@ import android.widget.TextView;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.druk.eventhelper.R;
+import com.druk.eventhelper.UserAreaActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
+    RequestQueue queue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +37,9 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+
+
+
         bLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,11 +57,15 @@ public class LoginActivity extends AppCompatActivity {
                             if (success) {
                                 String name = jsonResponse.getString("name");
                                 String lastname = jsonResponse.getString("lastname");
+                                String id = jsonResponse.getString("id");
 
                                 Intent intent = new Intent(LoginActivity.this, UserAreaActivity.class);
                                 intent.putExtra("name", name);
                                 intent.putExtra("lastname", lastname);
+                                intent.putExtra("id", id);
+                                queue.stop();
                                 startActivity(intent);
+
                             } else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
                                 builder.setMessage("Login Failed")
@@ -71,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
                 };
 
                 LoginRequest loginRequest = new LoginRequest(email, password, responseListener);
-                RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
+                queue = Volley.newRequestQueue(LoginActivity.this);
                 queue.add(loginRequest);
             }
         });
