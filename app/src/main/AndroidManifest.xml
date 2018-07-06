@@ -20,7 +20,7 @@
         </activity>
         <activity android:name=".logIn.RegisterActivity" />
         <activity android:name=".UserAreaActivity" />
-        <activity android:name=".DisplayList"></activity>
+        <activity android:name=".DisplayList"/>
     </application>
 
 </manifest>

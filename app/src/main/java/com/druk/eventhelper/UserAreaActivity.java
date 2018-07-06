@@ -28,6 +28,7 @@ public class UserAreaActivity extends Activity {
     final String SERVER_ULR = "http://uncroptv.000webhostapp.com/Create_Event.php";
     int user_id;
     TextView tvWelcomeMsg;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +54,7 @@ public class UserAreaActivity extends Activity {
 
         tvWelcomeMsg = (TextView) findViewById(R.id.tvWelcomeMsg);
         String message = name + "  " + lastname + " welcome to your user area";
-        tvWelcomeMsg.setText(message + getCurrentTime()+ "Это ваш ID номер:"+ user_id);
+        tvWelcomeMsg.setText(message + getCurrentTime() + "Это ваш ID номер:" + user_id);
 
     }
 
@@ -92,8 +93,8 @@ public class UserAreaActivity extends Activity {
                     public void onResponse(String response) {
 
 
-dialog.dismiss();
-tvWelcomeMsg.setText(response);
+                        dialog.dismiss();
+                        tvWelcomeMsg.setText(response);
 
                     }
                 }, new Response.ErrorListener() {
@@ -105,14 +106,14 @@ tvWelcomeMsg.setText(response);
                     @Override
                     protected Map<String, String> getParams() throws AuthFailureError {
                         Map<String, String> params = new HashMap<>();
-                        String to_name=name.getText().toString();
-                        String to_description=description.getText().toString();
-                        String time=getCurrentTime();
+                        String to_name = name.getText().toString();
+                        String to_description = description.getText().toString();
+                        String time = getCurrentTime();
 
                         params.put("name", to_name);
                         params.put("description", to_description);
                         params.put("time", time);
-                        params.put("id", user_id+"");
+                        params.put("id", user_id + "");
                         return params;
                     }
                 };

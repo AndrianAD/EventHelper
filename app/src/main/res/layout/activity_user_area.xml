@@ -28,8 +28,9 @@
         android:text="Display list"
         android:id="@+id/display_list"
         android:layout_marginTop="20dp"
-        android:onClick="displayList"
+        android:onClick="displayList"/>
 
-        />
+
+
 
 </LinearLayout>

@@ -4,39 +4,28 @@ package com.druk.eventhelper;
 
 public class Event {
 
-    private String title;
+    private String name;
     private String description;
     private String time;
 
     public String getDescription() {
         return description;
     }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public String getName() {
+        return name;
     }
-
     public String getTime() {
         return time;
     }
 
-    public void setTime(String time) {
-        this.time = time;
-    }
+    public Event(String name, String description, String time) {
 
-    public Event(String title, String description, String time) {
-
-        this.title = title;
+        this.name = name;
         this.description = description;
         this.time = time;
     }
 
-    public String getTitle() {
 
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
 }
+
+

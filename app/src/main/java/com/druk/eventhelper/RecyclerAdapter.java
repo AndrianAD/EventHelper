@@ -1,25 +1,35 @@
 package com.druk.eventhelper;
 
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>{
+public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder>{
     ArrayList<Event> arrayList=new ArrayList<>();
 
-    public RecyclerAdapter(ArrayList<Event> arrayList) {
-        this.arrayList = arrayList;
+    public RecyclerAdapter(ArrayList new_arrayList) {
+        arrayList = new_arrayList;
     }
 
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return null;
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_event,parent,false);
+    return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, int position) {
+Event event=arrayList.get(position);
+holder.Name.setText(event.getName());
+holder.Description.setText(event.getDescription());
+holder.Time.setText(event.getTime());
+
+
 
     }
 
@@ -27,10 +37,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     public int getItemCount() {
         return arrayList.size();
     }
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        public MyViewHolder(View itemView) {
-            super(itemView);
+
+    public static class ViewHolder extends RecyclerView.ViewHolder{
+       private TextView Name,Description,Time;
+        public ViewHolder(View view) {
+            super(view);
+       Name=view.findViewById(R.id.tv_name);
+       Description=view.findViewById(R.id.tv_description);
+       Time=view.findViewById(R.id.tv_time);
+
         }
     }
 }
