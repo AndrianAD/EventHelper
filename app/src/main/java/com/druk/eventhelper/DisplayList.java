@@ -20,8 +20,8 @@ public class DisplayList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_list);
         recyclerView=findViewById(R.id.recyclerView);
-//        Intent intent=getIntent();
-//        user_id = intent.getStringExtra("id");
+        Intent intent=getIntent();
+        user_id = intent.getStringExtra("id");
 
         BackgroundTask backgroundTask=new BackgroundTask(DisplayList.this,user_id);
         backgroundTask.getList(new BackgroundTask.arrayCallBack() {

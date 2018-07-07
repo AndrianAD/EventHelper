@@ -3,6 +3,8 @@ package com.druk.eventhelper;
 
 import android.content.Context;
 import android.widget.Toast;
+
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -12,11 +14,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class BackgroundTask {
     Context context;
     String user_id;
-    String json_url = "http://uncroptv.000webhostapp.com/Read.php";
+    String json_url = "http://uncroptv.000webhostapp.com/Read.php/?id=";
     static ArrayList<Event> arrayList = new ArrayList<>();
 
     public BackgroundTask(Context context, String user_id) {
@@ -25,7 +29,7 @@ public class BackgroundTask {
     }
 
     public void getList(final arrayCallBack onCallBack) {
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.POST, json_url, null, new Response.Listener<JSONArray>() {
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.POST, json_url+user_id, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 int count = 0;
@@ -52,12 +56,7 @@ public class BackgroundTask {
         });
         MySingleton.getInstance(context).addToRequestQueue(jsonArrayRequest);
 
-//            @Override
-//            protected Map<String, String> getParams() throws AuthFailureError {
-//                Map<String, String> params = new HashMap<>();
-//                params.put("id",user_id);
-//                return params;
-//            }
+
 
 
     }

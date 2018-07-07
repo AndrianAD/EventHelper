@@ -126,6 +126,8 @@ public class UserAreaActivity extends Activity {
 
 
     public void displayList(View view) {
-        startActivity(new Intent(UserAreaActivity.this,DisplayList.class));
+        Intent intent=new Intent(UserAreaActivity.this,DisplayList.class);
+        intent.putExtra("id", user_id+"");
+        startActivity(intent);
     }
 }
