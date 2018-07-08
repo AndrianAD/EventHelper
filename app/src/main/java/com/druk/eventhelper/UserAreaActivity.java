@@ -46,8 +46,7 @@ public class UserAreaActivity extends Activity {
         btn_newEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                save_form();
+                create_event();
 
             }
         });
@@ -63,7 +62,7 @@ public class UserAreaActivity extends Activity {
     }
 
 
-    private void save_form() {
+    private void create_event() {
         final Dialog dialog = new Dialog(UserAreaActivity.this);
         dialog.setContentView(R.layout.save_form);
         dialog.setTitle("Введите название:");

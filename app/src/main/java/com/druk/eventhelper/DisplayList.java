@@ -13,7 +13,6 @@ public class DisplayList extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     RecyclerView.LayoutManager layoutManager;
-    ArrayList<Event> arrayList=new ArrayList<>();
     String user_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +34,7 @@ public class DisplayList extends AppCompatActivity {
 
             @Override
             public void onFail(String msg) {
-                // Do Stuff
+
             }
         });
 
