@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -28,14 +29,15 @@ public class UserAreaActivity extends Activity {
     final String SERVER_ULR = "http://uncroptv.000webhostapp.com/Create_Event.php";
     int user_id;
     TextView tvWelcomeMsg;
+    RecyclerView recyclerView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_area);
         Button btn_newEvent = findViewById(R.id.new_event);
-        Button btn_displayList = findViewById(R.id.display_list);
-
+        recyclerView = findViewById(R.id.recyclerView2);
 
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
@@ -54,6 +56,7 @@ public class UserAreaActivity extends Activity {
         tvWelcomeMsg = (TextView) findViewById(R.id.tvWelcomeMsg);
         String message = name + "  " + lastname + " welcome to your user area";
         tvWelcomeMsg.setText(message + getCurrentTime() + "Это ваш ID номер:" + user_id);
+        UtilClass.read(UserAreaActivity.this, String.valueOf(user_id), recyclerView);
 
     }
 
@@ -94,6 +97,7 @@ public class UserAreaActivity extends Activity {
 
                         dialog.dismiss();
                         tvWelcomeMsg.setText(response);
+                        UtilClass.read(UserAreaActivity.this, String.valueOf(user_id), recyclerView);
 
                     }
                 }, new Response.ErrorListener() {
@@ -124,9 +128,4 @@ public class UserAreaActivity extends Activity {
     }
 
 
-    public void displayList(View view) {
-        Intent intent=new Intent(UserAreaActivity.this,DisplayList.class);
-        intent.putExtra("id", user_id+"");
-        startActivity(intent);
-    }
 }

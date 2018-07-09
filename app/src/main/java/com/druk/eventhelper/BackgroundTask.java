@@ -7,6 +7,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.druk.eventhelper.data.Event;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -17,7 +19,7 @@ public class BackgroundTask {
     Context context;
     String user_id;
     String json_url = "http://uncroptv.000webhostapp.com/Read.php/?id=";
-    static ArrayList<Event> arrayList = new ArrayList<>();
+    ArrayList<Event> arrayList = new ArrayList<>();
 
     public BackgroundTask(Context context, String user_id) {
         this.context = context;

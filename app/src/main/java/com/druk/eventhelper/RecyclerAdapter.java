@@ -1,14 +1,14 @@
 package com.druk.eventhelper;
 
 import android.content.Context;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.druk.eventhelper.data.Event;
 
 import java.util.ArrayList;
 
@@ -36,8 +36,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         holder.imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                UtilClass.makeToast(context, "Button delete it is pressed   " + event.getName());
                 UtilClass.deleteEvent(context,event.getName());
+                arrayList.remove(position);
+                notifyDataSetChanged();
+
             }
         });
     }

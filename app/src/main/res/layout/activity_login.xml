@@ -9,6 +9,18 @@
     android:paddingRight="10dp"
     tools:context=".UserAreaActivity">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LOG IN"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:paddingTop="70dp"
+        android:paddingBottom="30dp"
+        android:textColor="@android:color/black"
+        android:layout_margin="20dp" />
+
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -16,6 +28,8 @@
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:inputType="textPersonName"
             android:hint="Email"/>
     </android.support.design.widget.TextInputLayout>
@@ -25,6 +39,8 @@
         android:layout_height="wrap_content">
         <EditText
             android:id="@+id/etPassword"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
@@ -33,12 +49,13 @@
 
     <Button
         android:id="@+id/bSignIn"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign In"
+        android:layout_gravity="center"
         android:textAlignment="center"
         android:paddingBottom="20dp"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="5dp" />
 
     <TextView
         android:id="@+id/tvRegisterLink"
