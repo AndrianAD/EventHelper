@@ -17,6 +17,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.druk.eventhelper.logIn.LoginActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -128,4 +129,14 @@ public class UserAreaActivity extends Activity {
     }
 
 
+    public void logout(View view) {
+        new LoginActivity().clearPreferances();
+        startActivity(new Intent(this, LoginActivity.class));
+        finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }
